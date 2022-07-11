@@ -21,3 +21,9 @@ jobs:
         run: npm test
       - name: Run coverage
         run: npm run cover
+      - name: Publish to CodeClimate
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          GIT_BRANCH: ${{github.head_ref}}
+          GIT_COMMIT_SHA: ${{github.sha}}
