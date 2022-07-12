@@ -12,3 +12,9 @@ String.prototype.toUpper = function toUpper() {
     return String.fromCharCode(letter.charCodeAt(0) - 32);
   });
 };
+String.prototype.toLower = function toLower() {
+  const lower = new RegExp("[A-Z]", "g");
+  return this.replace(lower, function transform(letter) {
+    return String.fromCharCode(letter.charCodeAt(0) + 32);
+  });
+};
